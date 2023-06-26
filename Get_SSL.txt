@@ -1,0 +1,14 @@
+import requests
+print('Simple Web system for online Validation utilizing python by Arctic.framework@gmail.com')
+
+def check_ssl_certificate(url):
+    try:
+        response = requests.head(url)
+        if response.ok:
+            print("SSL certificate is valid.")
+        else:
+            print("SSL certificate is invalid.")
+    except requests.exceptions.SSLError:
+        print("SSL certificate is invalid.")
+    except requests.exceptions.RequestException:
+        print("Error connecting to the website.")

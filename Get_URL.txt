@@ -1,0 +1,30 @@
+import pygetwindow as gw
+import pyperclip
+import pyautogui
+import time
+print('Simple Web system for online Validation utilizing python by Arctic.framework@gmail.com')
+
+def Get_Current_URL():
+    # Get the Chrome window
+    chrome_window = gw.getWindowsWithTitle('Google Chrome')[0]
+
+    # Activate the Chrome window
+    chrome_window.activate()
+
+    # Copy the URL to the clipboard
+    chrome_window.minimize()
+    chrome_window.restore()
+    chrome_window.maximize()
+    chrome_window.activate()
+
+    # Press Ctrl+L to select the URL in the address bar
+    pyautogui.hotkey('ctrl', 'l')
+    time.sleep(0.5)  # Pause to ensure the URL is selected
+
+    # Press Ctrl+C to copy the URL to the clipboard
+    pyautogui.hotkey('ctrl', 'c')
+    time.sleep(0.5)  # Pause to ensure the URL is copied
+
+    # Get the URL from the clipboard
+    chrome_url = pyperclip.paste()
+    print("Current URL:", chrome_url)

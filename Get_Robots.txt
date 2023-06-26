@@ -1,0 +1,16 @@
+import requests
+print('Simple Web system for online Validation utilizing python by Arctic.framework@gmail.com')
+
+def fetch_robots_txt(url):
+    # Construct the URL for the robots.txt file
+    robots_url = url.rstrip("/") + "/robots.txt"
+
+    # Send a GET request to fetch the robots.txt file
+    response = requests.get(robots_url)
+
+    if response.status_code == 200:
+        # Print the contents of the robots.txt file
+        print(response.text)
+    else:
+        print("Failed to fetch robots.txt. Status code:", response.status_code)
+
